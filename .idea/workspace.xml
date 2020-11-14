@@ -33,7 +33,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ProgAsgStage1.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../edunnet" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -95,7 +95,7 @@
       <workItem from="1603271555655" duration="1175000" />
       <workItem from="1603877577680" duration="26838000" />
       <workItem from="1604585110718" duration="586000" />
-      <workItem from="1604638398883" duration="30299000" />
+      <workItem from="1604638398883" duration="41829000" />
     </task>
     <servers />
   </component>
@@ -124,10 +124,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="195" key="#com.intellij.ide.scriptingContext.ui.PerFileMappingsDialogWrapper/0.0.1536.824@0.0.1536.824" timestamp="1597049123908" />
-    <state x="548" y="157" key="FileChooserDialogImpl" timestamp="1604425435012">
+    <state x="548" y="157" key="FileChooserDialogImpl" timestamp="1605254586090">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="157" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604425435012" />
+    <state x="548" y="157" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605254586090" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1601548175594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -156,10 +156,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="415" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1604741238741" />
-    <state x="826" y="161" width="590" height="488" key="find.popup" timestamp="1605165518547">
+    <state x="826" y="161" width="590" height="488" key="find.popup" timestamp="1605326736852">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="826" y="161" width="590" height="488" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1605165518547" />
+    <state x="826" y="161" width="590" height="488" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1605326736852" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1596272603317">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

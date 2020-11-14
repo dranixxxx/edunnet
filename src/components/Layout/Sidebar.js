@@ -54,7 +54,7 @@ const navComponents = [
     Icon: MdGroupWork,
   },
   //{ to: '/forms', name: 'Học thêm', exact: false, Icon: MdChromeReaderMode },
-  { to: '/input-groups', name: 'Tự học', exact: false, Icon: MdViewList },
+  { to: '/input-groups', name: 'Học thêm', exact: false, Icon: MdViewList },
   {
     to: '/dropdowns',
     name: 'Thi, kiểm tra',
@@ -203,7 +203,7 @@ class Sidebar extends React.Component {
               <FormPage
               className="text-uppercase">
                       <span className="text-white" >
-                        <span style={{padding: '0px 8px 0px 0px'}}><FaGithub /></span><span>Học thêm</span>
+                        <span style={{padding: '0px 8px 0px 0px'}}><FaGithub /></span><span>Tự học</span>
               </span>
             </FormPage>
               </NavItem>

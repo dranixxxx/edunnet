@@ -135,17 +135,51 @@ class DashboardPage extends React.Component {
         </Row>
         <Row>
           <Col md="8" sm="12" xs="12">
+              <div>
             <Card>
             <CardHeader>Học bạ</CardHeader>
             <CardBody>
               <Radar data={HocbaData()} options={options1111}/>
             </CardBody>
           </Card>
+              </div>
+
+             <div>
+                 <Card>
+              <CardHeader>Lô trình học tập</CardHeader>
+              <CardBody>
+                {productsData.map(
+                  ({ id, image, title, description, right }) => (
+                    <ProductMedia
+                      key={id}
+                      image={image}
+                      title={title}
+                      description={<Progress animated color="success" value={description}>{description}%</Progress>}
+                      right={right}
+                    />
+                  ),
+                )}
+              </CardBody>
+            </Card>
+             </div>
+              <div>
+                  <Card>
+                      <CardHeader>Học thêm</CardHeader>
+                  <Tab/>
+                  </Card>
+              </div>
+              <div>
+                  <Card>
+                      <CardHeader>Thi, kiểm tra</CardHeader>
+                  <Tab/>
+                  </Card>
+              </div>
           </Col>
 
 
 
           <Col md="4" sm="12" xs="12">
+              <div>
             <Card>
               <CardHeader>Thông tin chung</CardHeader>
               <CardBody>
@@ -181,29 +215,8 @@ class DashboardPage extends React.Component {
                   </Table>
               </CardBody>
             </Card>
-          </Col>
-        </Row>
-
-        <Row>
-            <Col md="8" sm="12" xs="12">
-                <Card>
-              <CardHeader>Lô trình học tập</CardHeader>
-              <CardBody>
-                {productsData.map(
-                  ({ id, image, title, description, right }) => (
-                    <ProductMedia
-                      key={id}
-                      image={image}
-                      title={title}
-                      description={<Progress animated color="success" value={description}>{description}%</Progress>}
-                      right={right}
-                    />
-                  ),
-                )}
-              </CardBody>
-            </Card>
-            </Col>
-            <Col md="4" sm="12" xs="12">
+                  </div>
+              <div>
                 <Card>
               <CardHeader>Sự kiện sắp tới</CardHeader>
                     <CardBody>
@@ -218,19 +231,10 @@ class DashboardPage extends React.Component {
 
                     </CardBody>
                     </Card>
-            </Col>
+              </div>
+          </Col>
         </Row>
-          <Row>
-              <Col  md="8" sm="12" xs="12">
-                  <Card>
-                      <CardHeader>Học thêm</CardHeader>
-                  <Tab/>
-                  </Card>
-              </Col>
-              <Col md="4" sm="12" xs="12">
 
-              </Col>
-          </Row>
 
       </Page>
     );
