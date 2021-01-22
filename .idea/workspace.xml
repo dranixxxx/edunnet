@@ -3,18 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="09967a4d-c681-4b07-bcc1-f1ebb31596f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HocbaData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HocbaData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tab.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Widget/NumberWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Widget/NumberWidget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/demos/dashboardPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/demos/dashboardPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ButtonGroupPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ButtonGroupPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ButtonPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ButtonPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/CardPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CardPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/DashboardPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DashboardPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/DropdownPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DropdownPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/InputGroupPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InputGroupPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/WidgetPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/WidgetPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/Sidebar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +102,7 @@
       <workItem from="1603877577680" duration="26838000" />
       <workItem from="1604585110718" duration="586000" />
       <workItem from="1604638398883" duration="41829000" />
-      <workItem from="1611283485897" duration="32272000" />
+      <workItem from="1611283485897" duration="33290000" />
     </task>
     <servers />
   </component>
@@ -146,10 +135,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="415" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1604741238741" />
-    <state x="826" y="161" width="590" height="488" key="find.popup" timestamp="1611344118820">
+    <state x="826" y="161" width="590" height="488" key="find.popup" timestamp="1611346965939">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="826" y="161" width="590" height="488" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1611344118820" />
+    <state x="826" y="161" width="590" height="488" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1611346965939" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -3,7 +3,7 @@ import sidebarBgImage from 'assets/img/sidebar/sidebar-4.jpg';
 import SourceLink from 'components/SourceLink';
 import FormPage from 'pages/FormPage';
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaBook } from 'react-icons/fa';
 import {
   MdAccountCircle,
   MdArrowDropDownCircle,
@@ -140,7 +140,7 @@ class Sidebar extends React.Component {
                 alt=""
               />
               <span className="text-white">
-                Reduction <FaGithub />
+                EDUNET <span className="text-white" style={{fontSize:"15px"}}>student</span> <FaBook />
               </span>
             </SourceLink>
           </Navbar>
