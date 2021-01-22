@@ -1,44 +1,48 @@
 import { AnnouncementCard, TodosCard } from 'components/Card';
-import HorizontalAvatarList from 'components/HorizontalAvatarList';
-import MapWithBubbles from 'components/MapWithBubbles';
+// import HorizontalAvatarList from 'components/HorizontalAvatarList';
+// import MapWithBubbles from 'components/MapWithBubbles';
 import Page from 'components/Page';
-import ProductMedia from 'components/ProductMedia';
+// import ProductMedia from 'components/ProductMedia';
 import SupportTicket from 'components/SupportTicket';
 import UserProgressTable from 'components/UserProgressTable';
-import { IconWidget, NumberWidget } from 'components/Widget';
-import { getStackLineChart, stackLineChartOptions } from 'demos/chartjs';
+import {
+    // IconWidget,
+    NumberWidget } from 'components/Widget';
+// import { getStackLineChart, stackLineChartOptions } from 'demos/chartjs';
 import Calendar from 'rc-year-calendar';
 //require install tippy@4.3.5
 import tippy from 'tippy.js';
 
 
 import {
-  avatarsData,
+  // avatarsData,
   chartjs,
-  productsData,
+  // productsData,
   supportTicketsData,
   todosData,
   userProgressTableData,
 } from 'demos/dashboardPage';
 import React from 'react';
-import { HorizontalBar, Bar, Line } from 'react-chartjs-2';
+import { HorizontalBar,
+    // Bar, Line
+} from 'react-chartjs-2';
 import {
-  MdBubbleChart,
-  MdInsertChart,
+  // MdBubbleChart,
+  // MdInsertChart,
   MdPersonPin,
 } from 'react-icons/md';
-import InfiniteCalendar from 'react-infinite-calendar';
+// import InfiniteCalendar from 'react-infinite-calendar';
 import {
-    Badge,
+    // Badge,
     Button,
     Card,
     CardBody,
     CardHeader,
-    CardTitle,
+    // CardTitle,
     Col, Form, FormGroup, Input, Label,
     Row,
 } from 'reactstrap';
-import { getColor } from 'utils/colors';
+// import { getColor } from 'utils/colors';
 
 const currentYear = new Date().getFullYear();
 const today = new Date();
@@ -244,10 +248,9 @@ class DashboardPage extends React.Component {
               subtitle="This month"
               number="9.8k"
               color="secondary"
-              progress={{
-                value: 75,
-                label: 'Last month',
-              }}
+              progressvalue= "75"
+              progresslabel= 'Last month'
+
             />
           </Col>
 
@@ -257,10 +260,8 @@ class DashboardPage extends React.Component {
               subtitle="This month"
               number="5,400"
               color="secondary"
-              progress={{
-                value: 45,
-                label: 'Last month',
-              }}
+              progressvalue= "45"
+              progresslabel= 'Last month'
             />
           </Col>
 
@@ -270,10 +271,8 @@ class DashboardPage extends React.Component {
               subtitle="This month"
               number="3,400"
               color="secondary"
-              progress={{
-                value: 90,
-                label: 'Last month',
-              }}
+              progressvalue= "90"
+              progresslabel= 'Last month'
             />
           </Col>
 
@@ -283,10 +282,8 @@ class DashboardPage extends React.Component {
               subtitle="This month"
               number="38%"
               color="secondary"
-              progress={{
-                value: 60,
-                label: 'Last month',
-              }}
+              progressvalue= "60"
+              progresslabel= 'Last month'
             />
           </Col>
         </Row>

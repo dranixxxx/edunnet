@@ -19,7 +19,7 @@ import user11Image from 'assets/img/users/100_11.jpg';
 import user12Image from 'assets/img/users/100_12.jpg';
 import user13Image from 'assets/img/users/100_13.jpg';
 import user14Image from 'assets/img/users/100_14.jpg';
-import {emptyFn} from "react-infinite-calendar/lib/utils";
+
 
 export const productsData = [
   {

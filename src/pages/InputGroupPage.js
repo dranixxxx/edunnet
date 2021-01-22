@@ -5,16 +5,6 @@ import {
   Col,
   Card,
   CardHeader,
-  CardBody,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Input,
-  Button,
-  UncontrolledButtonDropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu,
 } from 'reactstrap';
 
 import Page from 'components/Page';

@@ -1,16 +1,10 @@
 import Page from 'components/Page';
 import React from 'react';
 import {
-  Button,
   Card,
-  CardBody,
   CardHeader,
   Col,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
   Row,
-  UncontrolledButtonDropdown,
 } from 'reactstrap';
 import Tab from 'components/Tab';
 

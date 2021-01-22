@@ -1,20 +1,12 @@
 import Page from 'components/Page';
 import React from 'react';
 import {
-    Button,
-    ButtonGroup,
-    ButtonToolbar,
     Card,
     CardBody,
     CardHeader,
-    CardText,
     Col,
-    DropdownItem,
-    DropdownMenu,
-    DropdownToggle,
-    Form, FormGroup, Input, Label, Progress,
+    Progress,
     Row,
-    UncontrolledButtonDropdown
 } from 'reactstrap';
 import {HorizontalBar} from "react-chartjs-2";
 import {chartjs, productsData} from 'demos/dashboardPage';

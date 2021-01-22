@@ -22,10 +22,8 @@ const WidgetPage = () => {
               subtitle="This month"
               number="$17,800"
               color={color}
-              progress={{
-                value: 75,
-                label: 'Last month',
-              }}
+              progressvalue= "75"
+              progresslabel= 'Last month'
             />
           </Col>
         ))}

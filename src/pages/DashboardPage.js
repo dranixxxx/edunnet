@@ -1,7 +1,5 @@
-import { AnnouncementCard, TodosCard } from 'components/Card';
 import Page from 'components/Page';
 import ProductMedia from 'components/ProductMedia';
-import SupportTicket from 'components/SupportTicket';
 import UserProgressTable from 'components/UserProgressTable';
 
 
@@ -10,56 +8,36 @@ import tippy from 'tippy.js';
 import Tab from 'components/Tab';
 
 
-import { randomNum } from 'utils/demos';
 import {
-  avatarsData,
-  chartjs,
   productsData,
-  supportTicketsData,
-  todosData,
   userProgressTableData,
 } from 'demos/dashboardPage';
-import React, {useState} from 'react';
-import {HorizontalBar, Bar, Line, Radar} from 'react-chartjs-2';
+import React from 'react';
+import { Radar} from 'react-chartjs-2';
 import {
-  MdBubbleChart,
-  MdInsertChart,
   MdPersonPin,
 } from 'react-icons/md';
-import InfiniteCalendar from 'react-infinite-calendar';
 import {
-    Badge,
-    Button,
     Card,
     CardBody,
     CardHeader,
-    CardTitle,
-    Col, Form, FormGroup, Input, Label, Table,
+    Col, Table,
     Row,Progress,
 } from 'reactstrap';
-import { getColor } from 'utils/colors';
 import HocbaData from 'components/HocbaData';
 import options1111 from 'components/HocbaData';
 
-const currentYear = new Date().getFullYear();
-const today = new Date();
 //var _ = require("underscore")._;
 var _ = require('lodash');
 var enrol;
 //enrol api
-var https = require('https');
+var https = require('http');
 var options = {
-  host: 'hadtech-elearning.tk',
+  host: '45.64.126.93',
+  port: 30446,
   path: '/webservice/rest/server.php?wstoken=578dd2d802eaa52b1fdf79fc921b292a&wsfunction=core_enrol_get_enrolled_users&moodlewsrestformat=json&courseid=3'};
 
-
-//event api
-var options1 = {
-  host: 'hadtech-elearning.tk',
-  path: '/webservice/rest/server.php?wstoken=578dd2d802eaa52b1fdf79fc921b292a&wsfunction=core_calendar_get_calendar_events&moodlewsrestformat=json'};
-
 //chart
-
 
 class DashboardPage extends React.Component {
   constructor() {
@@ -107,16 +85,14 @@ class DashboardPage extends React.Component {
         res.on("end", function () {
           enrol = JSON.parse(str);
           enrol = enrol.map((enrol) => _.pick(enrol, ["id", "fullname", "lastcourseaccess"]));
-          console.log(enrol);
           Array.prototype.push.apply(enrol, userProgressTableData);
           resolve(enrol, userProgressTableData)
         });
       }).end();
     }))
     this.setState({ userProgressData })
+      console.log(userProgressData[1].lastcourseaccess)
   }
-
-
 
   render() {
     return (
@@ -139,7 +115,7 @@ class DashboardPage extends React.Component {
             <Card>
             <CardHeader>Học bạ</CardHeader>
             <CardBody>
-              <Radar data={HocbaData()} options={options1111}/>
+              <HocbaData/>
             </CardBody>
           </Card>
               </div>
@@ -187,29 +163,29 @@ class DashboardPage extends React.Component {
                     <tr>
                         <td>
                             <CardHeader type="h1">
-                                Otto
+                                Số khóa đã học
                             </CardHeader>
-                            <CardBody>12</CardBody>
+                            <CardBody>1</CardBody>
                         </td>
                         <td>
                             <CardHeader type="h1">
-                                Otto
+                                Số khóa hoàn thành
                             </CardHeader>
-                            <CardBody>12</CardBody>
+                            <CardBody>0</CardBody>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <CardHeader type="h1">
-                                Otto
+                                Số huy hiệu
                             </CardHeader >
-                            <CardBody>12</CardBody>
+                            <CardBody>0</CardBody>
                         </td>
                         <td>
                             <CardHeader type="h1">
-                                Otto
+                                Điểm cao nhất
                             </CardHeader>
-                            <CardBody>12</CardBody>
+                            <CardBody>0</CardBody>
                         </td>
                     </tr>
                   </Table>
