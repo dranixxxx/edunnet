@@ -9,54 +9,34 @@ import {
   CardHeader,
   //CardSubtitle,
   CardBody,
-  //CardText,
+  Table
 } from 'reactstrap';
 
 import Page from 'components/Page';
 import Tab from 'components/Tab';
 import HocbaData from 'components/HocbaData';
-import aaa from 'components/HocbaData';
-  let comment="";
-  let abc = aaa;
-  if (abc=0){
-comment= <p>0 diem</p>
-}
-if (abc=1){
-comment= <p>1 diem</p>
-}
-if (abc=2){
-comment= <p>2diem</p>
-}
-if (abc=3){
-comment= <p>3diem</p>
-}
-if (abc=4){
-comment= <p>4diem</p>
-}
-if (abc=5){
-comment= <p>5diem</p>
-}
-if (abc=6){
-comment= <p>6diem</p>
-}
-if (abc=7){
-comment= <p>7diem</p>
-}
-if (abc=8){
-comment= <p>8diem</p>
-}
-if (abc=9){
-comment= <p>9diem</p>;
-}
-else {
-comment= <p>10diem</p>
-};
-class ButtonPage extends React.Component {
-  state = {
-    rSelected: null,
-    cSelected: [],
-  };
+import  djangoService  from  '../api/djangoapi';
 
+const  django =  new  djangoService();
+
+class ButtonPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rSelected: null,
+      cSelected: [],
+      KPs:[],
+    };
+  }
+
+
+   componentDidMount() {
+      var  self  =  this;
+      django.getKP().then(function (result) {
+        console.log(result);
+          self.setState({ KPs:  result})
+      });
+  }
   onCheckboxBtnClick(selected) {
     const index = this.state.cSelected.indexOf(selected);
     if (index < 0) {
@@ -86,10 +66,26 @@ class ButtonPage extends React.Component {
           </Card>
           </Col>
           <Col md="4" sm="4" xs="12">
-            <Card>
-              <CardHeader>Nhận xét</CardHeader>
-              <CardBody>{comment}</CardBody>
-            </Card>
+            <div style={{
+            maxHeight: '600px',
+            overflowY: 'auto'
+            }}>
+            <Table bordered height="600">
+              <div>{this.state.KPs.length}</div>
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+              </tr>
+                {this.state.KPs.map( c  =>
+                      <tr>
+                      <td>{c.tree_id}</td>
+                      <td>{c.name}</td>
+                      </tr>
+                )}
+            </thead>
+            </Table>
+            </div>
           </Col>
 
           <Col md="12" sm="12" xs="12">
