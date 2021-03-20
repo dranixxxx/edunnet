@@ -94,16 +94,17 @@ const pageContents = [
     exact: false,
     Icon: MdViewCarousel,
   },
-  {
-    to: '/infor_user_course',
-    name: 'ListUser',
-    exact: false,
-    Icon: MdViewCarousel,
-  },
+
 ];
 
 const navItems = [
   { to: '/', name: 'dashboard', exact: true, Icon: MdDashboard },
+    {
+    to: '/infor_user_course',
+    name: 'Teacher',
+    exact: false,
+    Icon: MdViewCarousel,
+  },
 ];
 
 const bem = bn.create('sidebar');
