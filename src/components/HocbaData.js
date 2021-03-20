@@ -1,28 +1,30 @@
 import React, {Component} from 'react';
 import { randomNum } from 'utils/demos';
 import { getColor } from 'utils/colors';
-import {Radar} from "react-chartjs-2"
+import {Radar} from "react-chartjs-2";
+import dl from "./Data.json";
 
-const MONTHS = ['Toán', 'Lý', 'Hóa', 'Anh', 'Địa', 'Sử', 'Văn'];
-const aaa = randomNum(0,10)
-const aaa2 = randomNum(0,10)
-const aaa3 = randomNum(0,10)
-const aaa4 = randomNum(0,10)
-const aaa5 = randomNum(0,10)
-const aaa6 = randomNum(0,10)
-const aaa7 = randomNum(0,10)
+const MONTHS = ['Toan', 'Ly', 'Hoa', 'Anh', 'Đia', 'Su', 'Van'];
 
-const gradedata = [aaa
-          ];
-const gradedata2 = [aaa2];
-const gradedata3 = [aaa3];
-const gradedata4 = [aaa4];
-const gradedata5 = [aaa5];
-const gradedata6 = [aaa6];
-const gradedata7 = [aaa7];
 
-const data2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const data = {
+
+
+
+
+const options1111 = {
+  scale: {
+    ticks: {
+      min: 0,
+      max: 10,
+      stepSize: 1,
+    }
+  }
+};
+
+class HocbaData extends Component {
+
+datatoan = [1,2,3,4];
+ data = {
   labels: MONTHS,
   datasets: [
     {
@@ -30,33 +32,79 @@ const data = {
         backgroundColor: getColor('primary'),
         borderColor: getColor('primary'),
         borderWidth: 1,
-        data: [
-          gradedata,
-          gradedata2,
-          gradedata3,
-          gradedata4,
-          gradedata5,
-          gradedata6,
-          gradedata7,
-        ],
-
+        data: this.datatoan,
     }
   ]
 }
-const options1111 = {
-  scale: {
-    ticks: { beginAtZero: true },
-    min: 0,
-    max: 10,
-    stepSize: 2,
-  },
-};
 
-class HocbaData extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      month :  MONTHS,
+      trangthai : false,
+      monhoc : 'toan',
+      diem : ''
+    };
+  }
+
+ 
+
+  
+   table = (event) => {
+      var a= event.target.value;
+      dl.map((value,key)=>{
+         if(a==value.monhoc){
+          
+            this.datatoan[0]=value.diemmieng;
+            this.datatoan[1]=value.diem15;
+            this.datatoan[2]=value.diem1tiet;
+            this.datatoan[3]=value.diemcuoiky;
+            this.data.datasets[0].data=this.datatoan;
+            console.log(this.data.datasets[0].data);
+            this.setState({trangthai: !this.state.trangthai});
+         }
+
+      });
+  }
+
+
+ // setActive =  (monhoc,diem) => {
+ //    this.setstate({
+ //      monhoc,
+ //      diem
+ //    });
+ //  }
+  elmColors = ()=>{
+    return this.state.month.map((month, index) => {
+        return <button
+                      value={month}
+                     className="btn btn-default"
+                     onClick = {(event)=>{
+                                this.table(event);
+                                // this.setActive(month.monhoc, month.diem)
+                              }}
+                >{month}</button>
+    });
+  } 
 
   render(){
+    
+console.log(this.state.month,'abcb')
   return (
-    <Radar data={data} options={options1111}/>
+    <div>
+      
+    <Radar data={this.data} options={options1111}/>
+    <button 
+      type="button" 
+      className="btn btn-default"
+      onClick = {()=>this.table()}
+    >buttonsss
+    
+    </button>
+      {this.elmColors()}
+      {this.state.trangthai ? <Radar data={this.data} options={options1111}/> : ''}
+    </div>
   );
 }
 }
