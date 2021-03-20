@@ -94,6 +94,12 @@ const pageContents = [
     exact: false,
     Icon: MdViewCarousel,
   },
+  {
+    to: '/infor_user_course',
+    name: 'ListUser',
+    exact: false,
+    Icon: MdViewCarousel,
+  },
 ];
 
 const navItems = [

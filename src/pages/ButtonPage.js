@@ -21,7 +21,7 @@ import TreeItem from '@material-ui/lab/TreeItem';
 import Page from 'components/Page';
 import Tab from 'components/Tab';
 import HocbaData from 'components/HocbaData';
-import CreateCourse from '../components/CreateCourse';
+
 
 
 
@@ -86,17 +86,6 @@ class ButtonPage extends Component {
         </Row>
 
         <Row>
-          <Col md="6" sm="12" xs="12">
-            <Card>
-              <CardHeader>Tạo khóa học</CardHeader>
-              <CardBody>
-                <CreateCourse/>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col md="6" sm="12" xs="12">
-
-          </Col>
           <Col md="12" sm="12" xs="12">
             <Card>
                 <Tab/>
