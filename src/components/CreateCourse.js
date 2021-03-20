@@ -31,22 +31,9 @@ export default class CreactCourse extends Component {
             this.handleCreate();
         event.preventDefault();
     }
-    handleCreate(){
-        customersService.createCustomer(
-            {
-            "name":  this.refs.Name.value,
-            "last_name":  this.refs.lastName.value,
-            "email":  this.refs.email.value,
-            "phone":  this.refs.phone.value,
-            "address":  this.refs.address.value,
-            "description":  this.refs.description.value
-            }).then((result)=>{
-                    alert("Customer created!");
-            }).catch(()=>{
-                    alert('There was an error! Please re-check your form.');
-            });
-    render() {
-        console.log(this.state.courseinfo);
+
+    render(){
+
         return (
             <Form onSubmit={this.handleSubmit}
                 >

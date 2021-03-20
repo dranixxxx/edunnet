@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09967a4d-c681-4b07-bcc1-f1ebb31596f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CreateCourse.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/djangoapi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/djangoapi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HocbaData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HocbaData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ButtonPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ButtonPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CreateCourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateCourse.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +111,7 @@
       <workItem from="1615548276933" duration="13837000" />
       <workItem from="1615811385180" duration="1147000" />
       <workItem from="1615880977399" duration="10277000" />
-      <workItem from="1616055282631" duration="10370000" />
+      <workItem from="1616055282631" duration="10844000" />
     </task>
     <servers />
   </component>
