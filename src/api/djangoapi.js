@@ -6,7 +6,7 @@ export default class djangoService{
     constructor(){}
 
     getKP() {
-        const url = `${API_URL}/api/KPs/`;
+        const url = `${API_URL}/api/KPs-nested/`;
         return axios.get(url).then(response => response.data);
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import  React, { Component } from  'react';
 
 import {
   Row,
@@ -9,44 +9,40 @@ import {
   CardHeader,
   //CardSubtitle,
   CardBody,
-  Table
+  Table,
+  Form,
+  FormGroup, Label, Input,
 } from 'reactstrap';
+import TreeView from '@material-ui/lab/TreeView';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import TreeItem from '@material-ui/lab/TreeItem';
 
 import Page from 'components/Page';
 import Tab from 'components/Tab';
 import HocbaData from 'components/HocbaData';
-import  djangoService  from  '../api/djangoapi';
+import CreateCourse from '../components/CreateCourse';
 
-const  django =  new  djangoService();
 
-class ButtonPage extends React.Component {
+
+class ButtonPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       rSelected: null,
       cSelected: [],
       KPs:[],
+      weakKPs: [],
+      courseinfo:[]
     };
   }
 
 
-   componentDidMount() {
-      var  self  =  this;
-      django.getKP().then(function (result) {
-        console.log(result);
-          self.setState({ KPs:  result})
-      });
-  }
-  onCheckboxBtnClick(selected) {
-    const index = this.state.cSelected.indexOf(selected);
-    if (index < 0) {
-      this.state.cSelected.push(selected);
-    } else {
-      this.state.cSelected.splice(index, 1);
-    }
-    this.setState({ cSelected: [...this.state.cSelected] });
-  }
-
+  // const onHandleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(cartdata);
+  //   getPaymentUrl();
+  // };
 
   render() {
     return (
@@ -79,15 +75,28 @@ class ButtonPage extends React.Component {
               </tr>
                 {this.state.KPs.map( c  =>
                       <tr>
-                      <td>{c.tree_id}</td>
-                      <td>{c.name}</td>
+                        <td>{c.subject_id}</td>
+                        <td>{c.name}</td>
                       </tr>
                 )}
             </thead>
             </Table>
             </div>
           </Col>
+        </Row>
 
+        <Row>
+          <Col md="6" sm="12" xs="12">
+            <Card>
+              <CardHeader>Tạo khóa học</CardHeader>
+              <CardBody>
+                <CreateCourse/>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col md="6" sm="12" xs="12">
+
+          </Col>
           <Col md="12" sm="12" xs="12">
             <Card>
                 <Tab/>
