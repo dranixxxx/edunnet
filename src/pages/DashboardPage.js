@@ -62,10 +62,12 @@ class DashboardPage extends Component {
           </Card>
           </Col>
           <Col md="4" sm="4" xs="12">
-            <div style={{
+            <Card style={{
             maxHeight: '600px',
             overflowY: 'auto'
             }}>
+            <CardHeader>Nhập điểm</CardHeader>
+              <CardBody>nhập điểm tại đây</CardBody>
             <Table bordered height="600">
               <div>{this.state.KPs.length}</div>
               <thead>
@@ -81,18 +83,11 @@ class DashboardPage extends Component {
                 )}
             </thead>
             </Table>
-            </div>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col md="12" sm="12" xs="12">
-            <Card>
-                <Tab/>
-
             </Card>
           </Col>
         </Row>
+
+
       </Page>
     );
   }
