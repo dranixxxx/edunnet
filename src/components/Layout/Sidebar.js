@@ -117,7 +117,7 @@ const bem = bn.create('sidebar');
 
 class Sidebar extends React.Component {
   state = {
-    isOpenComponents: false,
+    isOpenComponents: true,
     isOpenContents: false,
     isOpenYte:false,
     isOpenGiaitri: false,
@@ -196,7 +196,7 @@ class Sidebar extends React.Component {
                 />
               </BSNavLink>
             </NavItem>
-            <Collapse isOpen={this.state.isOpenPages}>
+            <Collapse isOpen={this.state.isOpenComponents}>
               {navComponents.map(({ to, name, exact, Icon }, index) => (
                 <NavItem key={index} className={bem.e('nav-item')}>
                   <BSNavLink
