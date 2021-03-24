@@ -67,22 +67,7 @@ class DashboardPage extends Component {
             overflowY: 'auto'
             }}>
             <CardHeader>Nhập điểm</CardHeader>
-              <CardBody>nhập điểm tại đây</CardBody>
-            <Table bordered height="600">
-              <div>{this.state.KPs.length}</div>
-              <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-              </tr>
-                {this.state.KPs.map( c  =>
-                      <tr>
-                        <td>{c.subject_id}</td>
-                        <td>{c.name}</td>
-                      </tr>
-                )}
-            </thead>
-            </Table>
+              <CardBody style={{height: "700px"}}>nhập điểm tại đây</CardBody>
             </Card>
           </Col>
         </Row>
