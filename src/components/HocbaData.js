@@ -1,13 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { randomNum } from 'utils/demos';
 import { getColor } from 'utils/colors';
-import {Radar} from "react-chartjs-2";
-import dl from "./Data.json";
-
-const MONTHS = ['Toan', 'Ly', 'Hoa', 'Anh', 'Đia', 'Su', 'Van'];
-
-
-
+import { Radar } from 'react-chartjs-2';
+import dl from './Data.json';
 
 
 
@@ -17,96 +12,104 @@ const options1111 = {
       min: 0,
       max: 10,
       stepSize: 1,
-    }
-  }
+    },
+  },
 };
 
 class HocbaData extends Component {
-
-datatoan = [1,2,3,4];
- data = {
-  labels: MONTHS,
-  datasets: [
-    {
-      label: 'Điểm',
-        backgroundColor: getColor('primary'),
-        borderColor: getColor('primary'),
-        borderWidth: 1,
-        data: this.datatoan,
-    }
-  ]
-}
-
   constructor(props) {
     super(props);
 
     this.state = {
-      month :  MONTHS,
-      trangthai : false,
-      monhoc : 'toan',
-      diem : ''
+      month: MONTHS,
+      trangthai: false,
+      monhoc: 'toan',
+      diem: '',
     };
   }
 
- 
+  table = value => {
+    debugger;
+    if (value + 1 !== this.state.index) this.setState({ index: value + 1 });
+    else this.setState({ index: 0 });
+  };
 
-  
-   table = (event) => {
-      var a= event.target.value;
-      dl.map((value,key)=>{
-         if(a==value.monhoc){
-          
-            this.datatoan[0]=value.diemmieng;
-            this.datatoan[1]=value.diem15;
-            this.datatoan[2]=value.diem1tiet;
-            this.datatoan[3]=value.diemcuoiky;
-            this.data.datasets[0].data=this.datatoan;
-            console.log(this.data.datasets[0].data);
-            this.setState({trangthai: !this.state.trangthai});
-         }
-
-      });
-  }
-
-
- // setActive =  (monhoc,diem) => {
- //    this.setstate({
- //      monhoc,
- //      diem
- //    });
- //  }
-  elmColors = ()=>{
+  elmColors = () => {
     return this.state.month.map((month, index) => {
-        return <button
-                      value={month}
-                     className="btn btn-default"
-                     onClick = {(event)=>{
-                                this.table(event);
-                                // this.setActive(month.monhoc, month.diem)
-                              }}
-                >{month}</button>
+      return (
+        <button
+          value={month}
+          className="btn btn-default"
+          onClick={event => {
+            this.table(index);
+            // this.setActive(month.monhoc, month.diem)
+          }}
+        >
+          {month}
+        </button>
+      );
     });
-  } 
+  };
 
-  render(){
-    
-console.log(this.state.month,'abcb')
-  return (
-    <div>
-      
-    <Radar data={this.data} options={options1111}/>
-    <button 
-      type="button" 
-      className="btn btn-default"
-      onClick = {()=>this.table()}
-    >buttonsss
-    
-    </button>
-      {this.elmColors()}
-      {this.state.trangthai ? <Radar data={this.data} options={options1111}/> : ''}
-    </div>
-  );
-}
+  render() {
+    const datax = dl.map((value, index) => {
+      let data1 = {
+        labels: [],
+        datasets: [
+          {
+            label: 'Điểm',
+            backgroundColor: getColor('primary'),
+            borderColor: getColor('primary'),
+            borderWidth: 1,
+            data: [],
+          },
+        ],
+      };
+      let datas = [];
+      let MONTHS1 = [];
+      value.KP.map((value1, key1) => {
+        datas.push(value1.diem);
+        MONTHS1.push(value1.KPid);
+      });
+      data1.labels = MONTHS1;
+      data1.datasets[0].data = datas;
+      return data1;
+    });
+
+    const data = {
+      labels: [],
+      datasets: [
+        {
+          label: 'Điểm',
+          backgroundColor: getColor('primary'),
+          borderColor: getColor('primary'),
+          borderWidth: 1,
+          data: [],
+        },
+      ],
+    };
+    let datast = [];
+    let labelst = [];
+    dl.map((value, index) => {
+      datast.push(value.diem);
+      labelst.push(value.monhoc);
+    });
+
+    data.labels = labelst;
+    data.datasets[0].data = datast;
+
+    console.log(datax, 'data');
+    return (
+      <div>
+        <Radar data={data} options={options1111} />
+
+        {this.elmColors()}
+        {this.state.index && (
+          <Radar data={datax[this.state.index - 1]} options={options1111} />
+        )}
+      </div>
+    );
+  }
 }
 
 export default HocbaData;
