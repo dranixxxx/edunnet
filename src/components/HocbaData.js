@@ -4,7 +4,7 @@ import { getColor } from 'utils/colors';
 import { Radar } from 'react-chartjs-2';
 import dl from './Data.json';
 
-
+const MONTHS = ['Toan', 'Ly', 'Hoa', 'Anh', 'Dia', 'Su', 'Van'];
 
 const options1111 = {
   scale: {
@@ -42,7 +42,6 @@ class HocbaData extends Component {
           className="btn btn-default"
           onClick={event => {
             this.table(index);
-            // this.setActive(month.monhoc, month.diem)
           }}
         >
           {month}
