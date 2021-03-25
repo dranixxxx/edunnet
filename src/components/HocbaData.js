@@ -68,7 +68,7 @@ class HocbaData extends Component {
       let MONTHS1 = [];
       value.KP.map((value1, key1) => {
         datas.push(value1.diem);
-        MONTHS1.push(value1.KPid);
+        MONTHS1.push(value1.name);
       });
       data1.labels = MONTHS1;
       data1.datasets[0].data = datas;
