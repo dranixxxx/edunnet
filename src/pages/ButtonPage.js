@@ -17,13 +17,12 @@ import TreeView from '@material-ui/lab/TreeView';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
+import { BrowserRouter, Redirect, Route, Switch, Link } from 'react-router-dom';
 
 import Page from 'components/Page';
 import Tab from 'components/Tab';
 import HocbaData from 'components/HocbaData';
-
-
-
+import StudentEnterTest from 'components/StudentEnterTest';
 
 class ButtonPage extends Component {
   constructor(props) {
@@ -59,7 +58,15 @@ class ButtonPage extends Component {
               {/*<Radar data={HocbaData()} options={options1111}/>*/}
               <HocbaData/>
             </CardBody>
-          </Card>
+            </Card>
+            <Label></Label>
+            <Card>
+              <Label></Label>
+              <Link to={`/student-enter-test`} activeClassName="active">
+                &nbsp;&nbsp;&nbsp;Click vào đây để nhập bài thi mới
+              </Link>
+              <Label></Label>
+            </Card>
           </Col>
           <Col md="4" sm="4" xs="12">
             <div style={{
@@ -83,6 +90,7 @@ class ButtonPage extends Component {
             </Table>
             </div>
           </Col>
+          
         </Row>
 
         <Row>
@@ -93,6 +101,7 @@ class ButtonPage extends Component {
             </Card>
           </Col>
         </Row>
+
       </Page>
     );
   }
