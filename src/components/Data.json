@@ -4,11 +4,14 @@
 		"monhoc" : "Toan",
 		"diem":9,
 		 "KP":[
-			{"KPid": "1.9.1.1.1" , "diem": 6},
-			{"KPid": "1.9.1.1.2" , "diem": 9},
-			{"KPid": "1.9.1.1.3" , "diem": 8},
-			{"KPid": "1.9.1.1.4" , "diem": 7},
-			{"KPid": "1.9.1.1.5" , "diem": 7}
+			{"KPid": "1.9.1.1.1" ,"name":"Căn bậc hai", "diem": 6},
+			{"KPid": "1.9.1.1.2" ,"name":"Căn thức bậc hai và hằng đẳng thức", "diem": 9},
+			{"KPid": "1.9.1.1.3" , "name": "Liên hệ giữa phép nhân và phép khai phương", "diem": 8},
+			{"KPid": "1.9.1.1.4" , "name": "Liên hệ giữa phép chia và phép khai phương", "diem": 7},
+			{"KPid": "1.9.1.1.10" , "name": "Bảng căn bậc hai", "diem": 9},
+			{"KPid": "1.9.1.1.6" , "name": "Biến đổi đơn giản biểu thức chứa căn thức bậc hai", "diem": 7},
+			{"KPid": "1.9.1.1.7" ,"name": "Rút gọn biểu thức chứa căn bậc hai", "diem": 7},
+			{"KPid": "1.9.1.1.8" , "name": "Căn bậc ba", "diem": 7}
 
 		]
 	},
@@ -17,10 +20,11 @@
 		"monhoc" : "Ly",
 		"diem":8,
 		 "KP":[
-			{"KPid": "1.9.1.1.1" , "diem": 7},
-			{"KPid": "1.9.1.1.2" , "diem": 8},
-			{"KPid": "1.9.1.1.3" , "diem": 2},
-			{"KPid": "1.9.1.1.4" , "diem": 8}
+			{"KPid": "1.9.1.1.1" ,"name":"Căn bậc hai", "diem": 6},
+			{"KPid": "1.9.1.1.2" ,"name":"Căn thức bậc hai và hằng đẳng thức", "diem": 5},
+			{"KPid": "1.9.1.1.3" , "name": "Liên hệ giữa phép nhân và phép khai phương", "diem": 10},
+			{"KPid": "1.9.1.1.4" , "name": "Liên hệ giữa phép chia và phép khai phương", "diem": 8},
+			{"KPid": "1.9.1.1.10" , "name": "Bảng căn bậc hai", "diem": 9}
 
 		]
 	},
@@ -29,12 +33,11 @@
 		"monhoc" : "Hoa",
 		"diem":9,
 		 "KP":[
-			{"KPid": "1.9.1.1.1" , "diem": 6},
-			{"KPid": "1.9.1.1.2" , "diem": 5},
-			{"KPid": "1.9.1.1.3" , "diem": 7},
-			{"KPid": "1.9.1.1.4" , "diem": 4},
-			{"KPid": "1.9.1.1.5" , "diem": 7},
-			{"KPid": "1.9.1.1.6" , "diem": 8}
+			{"KPid": "1.9.1.1.1" ,"name":"Căn bậc hai", "diem": 4},
+			{"KPid": "1.9.1.1.2" ,"name":"Căn thức bậc hai và hằng đẳng thức", "diem": 6},
+			{"KPid": "1.9.1.1.3" , "name": "Liên hệ giữa phép nhân và phép khai phương", "diem": 10},
+			{"KPid": "1.9.1.1.4" , "name": "Liên hệ giữa phép chia và phép khai phương", "diem": 8},
+			{"KPid": "1.9.1.1.10" , "name": "Bảng căn bậc hai", "diem": 10}
 
 		]
 	},
@@ -43,12 +46,12 @@
 		"monhoc" : "Anh",
 		"diem":10,
 		 "KP":[
-			{"KPid": "1.9.1.1.1" , "diem": 4},
-			{"KPid": "1.9.1.1.2" , "diem": 7},
-			{"KPid": "1.9.1.1.3" , "diem": 7},
-			{"KPid": "1.9.1.1.4" , "diem": 8},
-			{"KPid": "1.9.1.1.5" , "diem": 7},
-			{"KPid": "1.9.1.1.6" , "diem": 9}
+			{"KPid": "1.9.1.1.1" ,"name":"Căn bậc hai", "diem": 10},
+			{"KPid": "1.9.1.1.2" ,"name":"Căn thức bậc hai và hằng đẳng thức", "diem": 5},
+			{"KPid": "1.9.1.1.3" , "name": "Liên hệ giữa phép nhân và phép khai phương", "diem": 10},
+			{"KPid": "1.9.1.1.4" , "name": "Liên hệ giữa phép chia và phép khai phương", "diem": 8},
+			{"KPid": "1.9.1.1.10" , "name": "Bảng căn bậc hai", "diem": 9},
+			{"KPid": "1.9.1.1.8" , "name": "Căn bậc ba", "diem": 7}
 
 		]
 	},
@@ -57,14 +60,12 @@
 		"monhoc" : "Dia",
 		"diem":3,
 		 "KP":[
-			{"KPid": "1.9.1.1.1" , "diem": 8},
-			{"KPid": "1.9.1.1.2" , "diem": 9},
-			{"KPid": "1.9.1.1.3" , "diem": 7},
-			{"KPid": "1.9.1.1.4" , "diem": 2},
-			{"KPid": "1.9.1.1.5" , "diem": 7},
-			{"KPid": "1.9.1.1.6" , "diem": 6},
-			{"KPid": "1.9.1.1.7" , "diem": 10},
-			{"KPid": "1.9.1.1.8" , "diem": 4}
+			{"KPid": "1.9.1.1.1" ,"name":"Căn bậc hai", "diem": 7},
+			{"KPid": "1.9.1.1.2" ,"name":"Căn thức bậc hai và hằng đẳng thức", "diem": 5},
+			{"KPid": "1.9.1.1.3" , "name": "Liên hệ giữa phép nhân và phép khai phương", "diem": 10},
+			{"KPid": "1.9.1.1.4" , "name": "Liên hệ giữa phép chia và phép khai phương", "diem": 8},
+			{"KPid": "1.9.1.1.7" ,"name": "Rút gọn biểu thức chứa căn bậc hai", "diem": 7}
+
 
 		]
 	},
@@ -73,10 +74,11 @@
 		"monhoc" : "Su",
 		"diem":5,
 		 "KP":[
-			{"KPid": "1.9.1.1.1" , "diem": 10},
-			{"KPid": "1.9.1.1.2" , "diem": 9},
-			{"KPid": "1.9.1.1.3" , "diem": 9},
-			{"KPid": "1.9.1.1.4" , "diem": 3}
+			{"KPid": "1.9.1.1.1" ,"name":"Căn bậc hai", "diem": 6},
+			{"KPid": "1.9.1.1.2" ,"name":"Căn thức bậc hai và hằng đẳng thức", "diem": 5},
+			{"KPid": "1.9.1.1.3" , "name": "Liên hệ giữa phép nhân và phép khai phương", "diem": 10},
+			{"KPid": "1.9.1.1.4" , "name": "Liên hệ giữa phép chia và phép khai phương", "diem": 8},
+			{"KPid": "1.9.1.1.10" , "name": "Bảng căn bậc hai", "diem": 9}
 
 		]
 	},
@@ -85,10 +87,13 @@
 		"monhoc" : "Van",
 		"diem":5,
 		 "KP":[
-			{"KPid": "1.9.1.1.1" , "diem": 10},
-			{"KPid": "1.9.1.1.2" , "diem": 9},
-			{"KPid": "1.9.1.1.3" , "diem": 9},
-			{"KPid": "1.9.1.1.4" , "diem": 6}
+			{"KPid": "1.9.1.1.1" ,"name":"Căn bậc hai", "diem": 6},
+			{"KPid": "1.9.1.1.2" ,"name":"Căn thức bậc hai và hằng đẳng thức", "diem": 5},
+			{"KPid": "1.9.1.1.3" , "name": "Liên hệ giữa phép nhân và phép khai phương", "diem": 10},
+			{"KPid": "1.9.1.1.4" , "name": "Liên hệ giữa phép chia và phép khai phương", "diem": 8},
+			{"KPid": "1.9.1.1.10" , "name": "Bảng căn bậc hai", "diem": 9},
+			{"KPid": "1.9.1.1.7" ,"name": "Rút gọn biểu thức chứa căn bậc hai", "diem": 7},
+			{"KPid": "1.9.1.1.8" , "name": "Căn bậc ba", "diem": 7}
 		]
 	}
 	
