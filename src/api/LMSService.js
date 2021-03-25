@@ -13,6 +13,28 @@ class LMSService {
         return axios.get(url, {
         });//.then(response => response.data);
     }
+
+    async getStudents() {
+        const url = `${API_URL}/api/students/`;
+        return axios.get(url);        
+    }
+
+    async getStudent(_id) {
+        const url = `${API_URL}/api/students/${_id}`;
+        return axios.get(url);        
+    }
+
+    async createStudent(student) {
+        // Required fields: student_id, kp
+        const _id = student._id;
+        const url = `${API_URL}/api/students/`;
+        return axios.post(url, student);        
+    }
+
+    async updateStudent(_id, student) {
+        const url = `${API_URL}/api/students/${_id}`;
+        return axios.patch(url, student);
+    }
 };
 
 export default LMSService;

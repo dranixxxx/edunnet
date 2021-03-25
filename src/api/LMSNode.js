@@ -30,6 +30,16 @@ class LMSNode {
             }
         });
     }
+
+    async getSubjectList() {
+        const url = `${API_URL}/api/subject/`;
+        return axios.get(url);
+    }
+
+    async getTestTypes() {
+        const url = `${API_URL}/api/test-type/`;
+        return axios.get(url);
+    }
 };
 
 export default LMSNode;

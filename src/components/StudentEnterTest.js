@@ -20,28 +20,28 @@ import {
     Row,
 } from 'reactstrap';
 
-const subjectOptions = [
-    {value: '1', label: 'Toán'},
-    {value: '2', label: 'Văn'},
-    {value: '3', label: 'Anh'},
-    {value: '4', label: 'Sử'},
-    {value: '5', label: 'Địa'},
-    {value: '6', label: 'Hóa'},
-    {value: '7', label: 'Sinh'},
-    {value: '8', label: 'GDCD'},
-    {value: '9', label: 'Tin'},
-    {value: '10', label: 'Công nghệ'}
-]
+// const subjectOptions = [
+//     {value: '1', label: 'Toán'},
+//     {value: '2', label: 'Văn'},
+//     {value: '3', label: 'Anh'},
+//     {value: '4', label: 'Sử'},
+//     {value: '5', label: 'Địa'},
+//     {value: '6', label: 'Hóa'},
+//     {value: '7', label: 'Sinh'},
+//     {value: '8', label: 'GDCD'},
+//     {value: '9', label: 'Tin'},
+//     {value: '10', label: 'Công nghệ'}
+// ]
 
-const typeOptions = [
-    {value: "15", label: "Kiểm tra 15\'"},
-    {value: "45", label: "Kiểm tra 45\'"},
-    {value: "60", label: "Kiểm tra 60\'"},
-    {value: "120", label: "Kiểm tra 120\'"},
-    {value: "mid-term", label: "Thi giữa học kỳ"},
-    {value: "end-of-term", label: "Thi cuối học kỳ"},
-    {value: "end-of-year", label: "Thi cuối năm"}
-]
+// const typeOptions = [
+//     {value: "15", label: "Kiểm tra 15\'"},
+//     {value: "45", label: "Kiểm tra 45\'"},
+//     {value: "60", label: "Kiểm tra 60\'"},
+//     {value: "120", label: "Kiểm tra 120\'"},
+//     {value: "mid-term", label: "Thi giữa học kỳ"},
+//     {value: "end-of-term", label: "Thi cuối học kỳ"},
+//     {value: "end-of-year", label: "Thi cuối năm"}
+// ]
 
 const animatedComponents = makeAnimated();
 
@@ -55,6 +55,9 @@ class StudentEnterTest extends React.Component {
             subject_id: '1',
 
             options: [null, null, null, null, null],
+            subjectOptions: [],
+            typeOptions: [],
+
             placeholders: ['Select...', 'Select...', 'Select...', 'Select...', 'Select...'],
             typePlaceholder: 'Select...',
 
@@ -66,7 +69,14 @@ class StudentEnterTest extends React.Component {
             testScore: null,
             maxScore: null,
             teacherName: '',
+
+            // Variables related to API handling
+            treeToObjectId: {},
         };
+
+        // API-related variables
+        this.studentId = '';
+        this.testScore = null;
         
         // Faking student login -> assume token is ready
         this.node = new LMSNode();
@@ -83,14 +93,39 @@ class StudentEnterTest extends React.Component {
         tmp_placeholders[noOfDots] = selectedOption.label;
         this.setState({placeholders: tmp_placeholders, tree_id: selectedOption.value});
 
-        // if (noOfDots == 1) {
-        //     this.setState({subject_id: selectedOption.value})
-        // }
+        if (noOfDots == 0) {
+            this.setState({subject_id: selectedOption.value})
+        }
     }
 
     updateMulti = selectedOptions => {
         const kp = selectedOptions.map((obj) => (obj.value));
         this.setState({kp: kp});
+    }
+
+    componentDidMount() {
+        var self = this;
+        self.node.getSubjectList().then(function (result) {
+            const subjectOptions = result.data.data.map((obj) => ({
+                value: obj.tree_id,
+                label: obj.name
+            }));
+
+            const treeToObjectId = result.data.data.map((obj) => ({
+                tree_id: obj.tree_id,
+                _id: obj._id,
+            }));
+
+            self.setState({subjectOptions: subjectOptions, treeToObjectId: treeToObjectId});
+        })
+
+        self.node.getTestTypes().then(function (result) {
+            const testTypes = result.data.data.map((obj) => ({
+                value: obj.name,
+                label: `Thi ${obj.name}`
+            }));
+            self.setState({typeOptions: testTypes});
+        })
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -110,28 +145,66 @@ class StudentEnterTest extends React.Component {
     }
 
     handleSubmit(event) {
+        const subject_tree_id = this.state.subject_id;
+        const subjectId = this.state.treeToObjectId.filter(function(obj) {
+            return obj.tree_id == subject_tree_id;
+        })[0]._id;
         const dateObj = new Date(this.state.testDate);
         const testDate = dateObj.getTime();
-
         const testScore = parseFloat(this.state.testScore);
 
         const request_body = {
-            "subject_id": this.state.subject_id,
+            "subject_id": subjectId,
             "test_type": this.state.testType,
             "test_date": testDate,
             "teacher_name": this.state.teacherName,
             "score": testScore,//parseFloat(`${(this.state.testScore / this.state.maxScore * 10)}`.toFixed(1)),
             "kp": this.state.kp
         }
-        console.log(request_body);
 
+        // API calls are nested to avoid async time difference error
+        // Store exam details into Node API 'Exam'
         var self = this;
         self.node.loginStudent().then(function (result) {
             const token = result.data.data.token;
-            self.node.createExam(token, request_body).then(function (result) {
-                console.log(result.data);
-            })
+            // self.node.createExam(token, request_body).then(function (result) {
+            //     console.log(result.data);
+            // })
+            
+            // Check if student exists in LMS API
+            self.studentId = result.data.data._id;
+            self.testScore = testScore;
+            self.service.getStudent(self.studentId).
+                then(function (result) {
+                    // If student exists, add kp to student
+                    const oldData = result.data.kp;
+                    const newData = self.state.kp.map(tree_id => ([tree_id, self.testScore]));
+                    for (const obj of oldData) {
+                        if (!(obj.tree_id in self.state.kp)) {
+                            const newObj = [obj.tree_id, obj.score];
+                            newData.push(newObj);
+                        }
+                    };
+                    const student = {
+                        "kp": newData
+                    };        
+                    self.service.updateStudent(self.studentId, student).then(function (result) {
+                        console.log(result.data);
+                    })
+                }).
+                catch(function (err) {
+                    // If student doesn't exist, create a new student
+                    const student = {
+                        "_id": self.studentId,
+                        "kp": self.state.kp.map(tree_id => ([tree_id, self.testScore]))
+                    }
+                    self.service.createStudent(student).then(function (result) {
+                        console.log(result.data);
+                    })
+                })
         })
+
+
     }
 
     render() {
@@ -149,7 +222,7 @@ class StudentEnterTest extends React.Component {
                                 value={this.state.selectedOption}
                                 onChange={this.updateOnly}
                                 placeholder={this.state.placeholders[0]}
-                                options={subjectOptions}
+                                options={this.state.subjectOptions}
                             />
                         </FormGroup>
                         <FormGroup>
@@ -166,7 +239,7 @@ class StudentEnterTest extends React.Component {
                             <Select
                                 value={this.state.selectedType}
                                 placeholder={this.state.typePlaceholder}
-                                options={typeOptions}
+                                options={this.state.typeOptions}
                                 onChange={(selectedType) => this.setState({
                                     testType: `${selectedType.value}`,
                                     typePlaceholder: `${selectedType.label}`}

@@ -17,6 +17,7 @@ import TreeView from '@material-ui/lab/TreeView';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
+import { BrowserRouter, Redirect, Route, Switch, Link } from 'react-router-dom';
 
 import Page from 'components/Page';
 import Tab from 'components/Tab';
@@ -67,7 +68,11 @@ class DashboardPage extends Component {
             overflowY: 'auto'
             }}>
             <CardHeader>Nhập điểm</CardHeader>
-              <CardBody style={{height: "700px"}}>nhập điểm tại đây</CardBody>
+              <CardBody style={{height: "700px"}}>
+                <Link to={`/student-enter-test`} activeClassName="active">
+                  &nbsp;&nbsp;&nbsp;Click vào đây để nhập bài thi mới
+                </Link>
+              </CardBody>
             </Card>
           </Col>
         </Row>
