@@ -46,20 +46,21 @@ const sidebarBackground = {
 };
 
 const navComponents = [
-  { to: '/buttons', name: 'Học bạ', exact: false, Icon: MdRadioButtonChecked },
-  {
-    to: '/button-groups',
-    name: 'Lộ trình học tập',
-    exact: false,
-    Icon: MdGroupWork,
-  },
+  { to: '/', name: 'Học bạ số', exact: true, Icon: MdDashboard },
+
   //{ to: '/forms', name: 'Học thêm', exact: false, Icon: MdChromeReaderMode },
-  { to: '/input-groups', name: 'Học thêm', exact: false, Icon: MdViewList },
+  { to: '/input-groups', name: 'Học online với giáo viên', exact: false, Icon: MdViewList },
   {
     to: '/dropdowns',
-    name: 'Thi, kiểm tra',
+    name: 'Làm bài tập về nhà',
     exact: false,
     Icon: MdArrowDropDownCircle,
+  },
+  {
+    to: '/button-groups',
+    name: 'Tự học',
+    exact: false,
+    Icon: MdGroupWork,
   },
   /**/
 ];
@@ -81,7 +82,13 @@ const navGiaitri = [
   { to: '/cards', name: 'Nghe, nhìn', exact: false, Icon: MdWeb },
   { to: '/charts', name: 'Shopping', exact: false, Icon: MdInsertChart },
   { to: '/widgets', name: 'Ăn uống', exact: false, Icon: MdWidgets },
-
+  { to: '/buttons', name: 'Học bạ', exact: false, Icon: MdRadioButtonChecked },
+  {
+    to: '/button-groups',
+    name: 'Lộ trình học tập',
+    exact: false,
+    Icon: MdGroupWork,
+  },
 ];
 
 
@@ -98,20 +105,19 @@ const pageContents = [
 ];
 
 const navItems = [
-  { to: '/', name: 'dashboard', exact: true, Icon: MdDashboard },
-    {
-    to: '/infor_user_course',
-    name: 'Teacher',
-    exact: false,
-    Icon: MdViewCarousel,
-  },
+  //   {
+  //   to: '/infor_user_course',
+  //   name: 'Teacher',
+  //   exact: false,
+  //   Icon: MdViewCarousel,
+  // },
 ];
 
 const bem = bn.create('sidebar');
 
 class Sidebar extends React.Component {
   state = {
-    isOpenComponents: false,
+    isOpenComponents: true,
     isOpenContents: false,
     isOpenYte:false,
     isOpenGiaitri: false,
@@ -175,7 +181,7 @@ class Sidebar extends React.Component {
               <BSNavLink className={bem.e('nav-item-collapse')}>
                 <div className="d-flex">
                   <MdExtension className={bem.e('nav-item-icon')} />
-                  <span className=" align-self-start">Học tập</span>
+                  <span className=" align-self-start text-uppercase">Học tập</span>
                 </div>
                 <MdKeyboardArrowDown
                   className={bem.e('nav-item-icon')}
@@ -195,7 +201,6 @@ class Sidebar extends React.Component {
                 <NavItem key={index} className={bem.e('nav-item')}>
                   <BSNavLink
                     id={`navItem-${name}-${index}`}
-                    className="text-uppercase"
                     tag={NavLink}
                     to={to}
                     activeClassName="active"
@@ -206,14 +211,6 @@ class Sidebar extends React.Component {
                   </BSNavLink>
                 </NavItem>
               ))}
-              <NavItem className={bem.e('nav-item')} style={padding}>
-              <FormPage
-              className="text-uppercase">
-                      <span className="text-white" >
-                        <span style={{padding: '0px 8px 0px 0px'}}><FaGithub /></span><span>Tự học</span>
-              </span>
-            </FormPage>
-              </NavItem>
             </Collapse>
 
             <NavItem
@@ -334,6 +331,14 @@ class Sidebar extends React.Component {
                   </BSNavLink>
                 </NavItem>
               ))}
+              <NavItem className={bem.e('nav-item')} style={padding}>
+              <FormPage
+              className="text-uppercase">
+                      <span className="text-white" >
+                        <span style={{padding: '0px 8px 0px 0px'}}><FaGithub /></span><span>Tự học</span>
+              </span>
+            </FormPage>
+              </NavItem>
             </Collapse>
 
 
