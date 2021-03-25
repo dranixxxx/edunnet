@@ -22,7 +22,7 @@ import { BrowserRouter, Redirect, Route, Switch, Link } from 'react-router-dom';
 import Page from 'components/Page';
 import Tab from 'components/Tab';
 import HocbaData from 'components/HocbaData';
-
+import StudentEnterTest from 'components/StudentEnterTest';
 
 
 
@@ -69,9 +69,10 @@ class DashboardPage extends Component {
             }}>
             <CardHeader>Nhập điểm</CardHeader>
               <CardBody style={{height: "700px"}}>
-                <Link to={`/student-enter-test`} activeClassName="active">
+                {/* <Link to={`/student-enter-test`} activeClassName="active">
                   &nbsp;&nbsp;&nbsp;Click vào đây để nhập bài thi mới
-                </Link>
+                </Link> */}
+                <StudentEnterTest/>
               </CardBody>
             </Card>
           </Col>

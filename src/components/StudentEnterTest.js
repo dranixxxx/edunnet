@@ -72,6 +72,7 @@ class StudentEnterTest extends React.Component {
 
             // Variables related to API handling
             treeToObjectId: {},
+            success: '',
         };
 
         // API-related variables
@@ -167,9 +168,9 @@ class StudentEnterTest extends React.Component {
         var self = this;
         self.node.loginStudent().then(function (result) {
             const token = result.data.data.token;
-            // self.node.createExam(token, request_body).then(function (result) {
-            //     console.log(result.data);
-            // })
+            self.node.createExam(token, request_body).then(function (result) {
+                // console.log(result.data);
+            })
             
             // Check if student exists in LMS API
             self.studentId = result.data.data._id;
@@ -190,6 +191,7 @@ class StudentEnterTest extends React.Component {
                     };        
                     self.service.updateStudent(self.studentId, student).then(function (result) {
                         console.log(result.data);
+                        self.setState({success: 'Success!'});
                     })
                 }).
                 catch(function (err) {
@@ -200,6 +202,7 @@ class StudentEnterTest extends React.Component {
                     }
                     self.service.createStudent(student).then(function (result) {
                         console.log(result.data);
+                        self.setState({success: 'Success!'});
                     })
                 })
         })
@@ -209,12 +212,12 @@ class StudentEnterTest extends React.Component {
 
     render() {
         return (
-            <Page title="Điểm kiểm tra tự nhập" breadcrumbs={[{ name: 'Forms', active: true }]}>
-            <Row>
-                <Col xl={6} lg={12} md={12}>
-                    <Card>
-                    <CardHeader>Form nhập điểm</CardHeader>
-                    <CardBody>
+            // <Page title="Điểm kiểm tra tự nhập" breadcrumbs={[{ name: 'Forms', active: true }]}>
+            // <Row>
+            //     <Col xl={6} lg={12} md={12}>
+            //         <Card>
+            //         <CardHeader>Form nhập điểm</CardHeader>
+            //         <CardBody>
                         <Form>
                         <FormGroup>
                             <Label for="subjectName">Môn</Label>
@@ -304,26 +307,26 @@ class StudentEnterTest extends React.Component {
                                     onChange={(event) => this.setState({testScore: event.target.value})}
                                 />
                             </Label>
-                            <Label for="scoreSeparator">&nbsp;&nbsp;/&nbsp;&nbsp;</Label>
+                            {/* <Label for="scoreSeparator">&nbsp;&nbsp;/&nbsp;&nbsp;</Label>
                             <Label for="maxScore">
                                 <Input
                                     type="number"
                                     defaultValue="10"
                                     onChange={(event) => this.setState({maxScore: event.target.value})}
                                 />
-                            </Label>
+                            </Label> */}
                         </FormGroup>
+                        <Button onClick={this.handleSubmit}>Submit</Button>
+                        <Label for="success">&nbsp;&nbsp;&nbsp;&nbsp;{this.state.success}</Label>
                         <>
                             <hr style={{borderTop: "10px solid #ffffff"}}/>
-                        </>
-                        <Button onClick={this.handleSubmit}>Submit</Button>
-                        
+                        </>                        
                         </Form>
-                    </CardBody>
-                    </Card>
-                </Col>
-            </Row>
-            </Page>
+        //             </CardBody>
+        //             </Card>
+        //         </Col>
+        //     </Row>
+        //     </Page>
         )
     }
 }
