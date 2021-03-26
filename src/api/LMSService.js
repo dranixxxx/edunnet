@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://45.64.126.93:8000';
+const API_URL = "http://45.64.126.93:8000"//process.env.API_LMS_SERVICE;
 
 class LMSService {
 

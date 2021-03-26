@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://45.64.126.93:8005';
+const API_URL = "http://edunet.tranonline.ml"// process.env.API_LMS_NODE;
 
 const TEST_STUDENT = {
     "email": "hadentecker@gmail.com",
@@ -9,6 +9,7 @@ const TEST_STUDENT = {
 class LMSNode {
 
     async loginStudent(student=TEST_STUDENT) {
+        console.log(API_URL);
         const url = `${API_URL}/api/auth/login/`;
         return axios.post(url, student);//.then(response => response.data);
     }
