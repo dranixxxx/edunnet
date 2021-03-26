@@ -41,6 +41,11 @@ class LMSNode {
         const url = `${API_URL}/api/test-type/`;
         return axios.get(url);
     }
+
+    async getPublicUserInfo(role) {
+        const url = `${API_URL}/api/user/public?role=${role}`;
+        return axios.get(url);
+    }
 };
 
 export default LMSNode;

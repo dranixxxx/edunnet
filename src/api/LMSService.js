@@ -35,6 +35,11 @@ class LMSService {
         const url = `${API_URL}/api/students/${_id}`;
         return axios.patch(url, student);
     }
+
+    async getCourses() {
+        const url = `${API_URL}/api/courses/`;     
+        return axios.get(url);  
+    }
 };
 
 export default LMSService;

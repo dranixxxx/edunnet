@@ -79,6 +79,7 @@ class StudentEnterTest extends React.Component {
         this.studentId = '';
         this.testScore = null;
         this.token = '';
+        this.dummyKP = [['1.9.1.1.1', 10]];
         
         // Faking student login -> assume token is ready
         this.node = new LMSNode();
@@ -119,7 +120,7 @@ class StudentEnterTest extends React.Component {
             }));
 
             self.setState({subjectOptions: subjectOptions, treeToObjectId: treeToObjectId});
-        })
+        });
 
         self.node.getTestTypes().then(function (result) {
             const testTypes = result.data.data.map((obj) => ({
@@ -127,10 +128,26 @@ class StudentEnterTest extends React.Component {
                 label: `Thi ${obj.name}`
             }));
             self.setState({typeOptions: testTypes});
-        })
+        });
+
         self.node.loginStudent().then(function (result) {
             self.token = result.data.data.token;
             self.studentId = result.data.data._id;
+
+            self.service.getStudent(self.studentId).then(function (result) {
+                self.oldData = result.data.kp;
+
+            }).catch(function (err) {
+                // If student doesn't exist, create a new student
+                self.oldData = [];
+                const student = {
+                    "_id": self.studentId,
+                    "kp": self.dummyKP,
+                };
+                self.service.createStudent(student).then(function (result) {
+                    console.log(result.data);
+                })
+            })
         })
     }
 
@@ -151,6 +168,7 @@ class StudentEnterTest extends React.Component {
     }
 
     handleSubmit(event) {
+        // Format exam data to pass to LMS Node 
         const subject_tree_id = this.state.subject_id;
         const subjectId = this.state.treeToObjectId.filter(function(obj) {
             return obj.tree_id == subject_tree_id;
@@ -168,48 +186,30 @@ class StudentEnterTest extends React.Component {
             "kp": this.state.kp
         }
 
-        // API calls are nested to avoid async time difference error
-        // Store exam details into Node API 'Exam'
-        var self = this;
-
+        // Store exam details into LMS Node 'Exam'
         // self.node.createExam(token, request_body).then(function (result) {
         //     console.log(result.data);
         // })
         
-        // Check if student exists in LMS API    
+        // Format KP data to pass to LMS Service
+        var self = this;
         self.testScore = testScore;
-        self.service.getStudent(self.studentId).
-            then(function (result) {
-                // If student exists, add kp to student
-                const oldData = result.data.kp;
-                const newData = self.state.kp.map(tree_id => ([tree_id, self.testScore]));
-                for (const obj of oldData) {
-                    if (!(obj.tree_id in self.state.kp)) {
-                        const newObj = [obj.tree_id, obj.score];
-                        newData.push(newObj);
-                    }
-                };
-                const student = {
-                    "kp": newData
-                };        
-                self.service.updateStudent(self.studentId, student).then(function (result) {
-                    console.log(result.data);
-                    self.setState({success: 'Success!'});
-                })
-            }).
-            catch(function (err) {
-                // If student doesn't exist, create a new student
-                const student = {
-                    "_id": self.studentId,
-                    "kp": self.state.kp.map(tree_id => ([tree_id, self.testScore]))
-                }
-                self.service.createStudent(student).then(function (result) {
-                    console.log(result.data);
-                    self.setState({success: 'Success!'});
-                })
-            })
+        const newData = self.state.kp.map(tree_id => ([tree_id, self.testScore]));
+        for (const obj of self.oldData) {
+            if (!(obj.tree_id in self.state.kp)) {
+                const newObj = [obj.tree_id, obj.score];
+                newData.push(newObj);
+            }
+        };
+        const student = {
+            "kp": newData
+        };        
 
-
+        // Update kp for student in LMS API 'Student'
+        self.service.updateStudent(self.studentId, student).then(function (result) {
+            console.log(result.data);
+            alert("Nhập điểm thành công!");
+        })
     }
 
     render() {
@@ -319,10 +319,6 @@ class StudentEnterTest extends React.Component {
                             </Label> */}
                         </FormGroup>
                         <Button onClick={this.handleSubmit}>Submit</Button>
-                        <Label for="success">&nbsp;&nbsp;&nbsp;&nbsp;{this.state.success}</Label>
-                        <>
-                            <hr style={{borderTop: "10px solid #ffffff"}}/>
-                        </>                        
                         </Form>
         //             </CardBody>
         //             </Card>
