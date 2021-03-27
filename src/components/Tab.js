@@ -38,17 +38,19 @@ export default class Tab extends React.Component {
         var  self  =  this;
         self.node.loginStudent().then(function (result) {
             self.studentId = result.data.data._id;
-            // console.log(self.studentId);
+            console.log(self.studentId);
 
             self.service.getStudent(self.studentId).then(function (result) {
                 self.recCoursesId = result.data.rec_courses.map(obj => obj._id);
                 self.enrolCourses = result.data.enrol_courses.map(obj => obj._id);
-                // console.log("ENROLLL COURSESSSSSSSSSSSS");
-                // console.log(self.enrolCourses);
+                console.log("ENROLLL COURSESSSSSSSSSSSS");
+                console.log(self.enrolCourses);
 
                 self.service.getCourses().then(function (result) {
                     self.allCourses = result.data;
-                    // console.log(self.allCourses);
+                    console.log(self.allCourses);
+                    console.log(self.recCoursesId);
+            
 
                     self.recCoursesPartial = self.allCourses.filter(function (course) {
                         return self.recCoursesId.includes(course._id);
