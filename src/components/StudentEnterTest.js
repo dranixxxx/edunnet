@@ -53,6 +53,7 @@ class StudentEnterTest extends React.Component {
             tree_id: '',
             kp: [],
             subject_id: '1',
+            parentObj: [null, null, null, null, null],
 
             options: [null, null, null, null, null],
             subjectOptions: [],
@@ -94,11 +95,11 @@ class StudentEnterTest extends React.Component {
 
         let tmp_placeholders = [...this.state.placeholders];
         tmp_placeholders[noOfDots] = selectedOption.label;
+        if (noOfDots == 0) {
+            this.subject_id = selectedOption.value;
+        }
         this.setState({placeholders: tmp_placeholders, tree_id: selectedOption.value});
 
-        if (noOfDots == 0) {
-            this.setState({subject_id: selectedOption.value})
-        }
     }
 
     updateMulti = selectedOptions => {
@@ -108,18 +109,26 @@ class StudentEnterTest extends React.Component {
 
     componentDidMount() {
         var self = this;
-        self.node.getSubjectList().then(function (result) {
-            const subjectOptions = result.data.data.map((obj) => ({
-                value: obj.tree_id,
-                label: obj.name
-            }));
 
-            const treeToObjectId = result.data.data.map((obj) => ({
-                tree_id: obj.tree_id,
-                _id: obj._id,
-            }));
+        self.service.getKP().then(function(result) {
+            let parentObj = [...self.state.parentObj];
+            parentObj[0] = {'subset': result.data} // Insert subset field for intial componentDidUpdate parentObj.subset
+            self.setState({parentObj: parentObj});
+            console.log(self.state.parentObj);
 
-            self.setState({subjectOptions: subjectOptions, treeToObjectId: treeToObjectId});
+            self.node.getSubjectList().then(function (result) {
+                const subjectOptions = result.data.data.map((obj) => ({
+                    value: obj.tree_id,
+                    label: obj.name
+                }));
+
+                const treeToObjectId = result.data.data.map((obj) => ({
+                    tree_id: obj.tree_id,
+                    _id: obj._id,
+                }));
+
+                self.setState({subjectOptions: subjectOptions, treeToObjectId: treeToObjectId});
+            });
         });
 
         self.node.getTestTypes().then(function (result) {
@@ -149,27 +158,34 @@ class StudentEnterTest extends React.Component {
                 })
             })
         })
-    }
 
+
+    }
     componentDidUpdate(prevProps, prevState) {
         if (prevState.tree_id !== this.state.tree_id) {
             var self = this;
-            self.service.getKPSubset(self.state.tree_id).then(function (result) {
-                const options = result.data.map((obj) => ({
-                    value: obj.tree_id,
-                    label: obj.name
-                }));
-                const noOfDots = (self.state.tree_id.match(/\./g) || []).length;
-                let tmp_options = [...self.state.options];
-                tmp_options[noOfDots+1] = options;
-                self.setState({options: tmp_options});
-            });
+            const noOfDots = (self.state.tree_id.match(/\./g) || []).length;
+
+            const subsetObj = self.state.parentObj[noOfDots].subset.filter(function(obj) {
+                return obj.tree_id == self.state.tree_id;
+            })[0];
+            const options = subsetObj.subset.map((obj) => ({
+                value: obj.tree_id,
+                label: obj.name,
+            }))
+            
+            let tmp_options = [...self.state.options];
+            tmp_options[noOfDots+1] = options;
+            let parentObj = [...self.state.parentObj];
+            parentObj[noOfDots+1] = subsetObj;
+            self.setState({options: tmp_options, parentObj: parentObj});
+            // console.log(self.state.parentObj);
         }
     }
 
     handleSubmit(event) {
         // Format exam data to pass to LMS Node 
-        const subject_tree_id = this.state.subject_id;
+        const subject_tree_id = this.subject_id;
         const subjectId = this.state.treeToObjectId.filter(function(obj) {
             return obj.tree_id == subject_tree_id;
         })[0]._id;

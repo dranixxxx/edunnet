@@ -17,7 +17,7 @@ const InputGroupPage = () => {
       breadcrumbs={[{ name: 'Input Groups', active: true }]}
     >
       <Row>
-        <Col  md="8" sm="12" xs="12">
+        <Col>
                   <Card>
                       <CardHeader>Học thêm</CardHeader>
                   <Tab/>

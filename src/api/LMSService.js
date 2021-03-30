@@ -3,6 +3,11 @@ const API_URL = "http://45.64.126.93:8000"//process.env.API_LMS_SERVICE;
 
 class LMSService {
 
+    async getAllKPs() {
+        const url = `${API_URL}/api/KPs/`;
+        return axios.get(url);
+    }
+
     async getKP() {
         const url = `${API_URL}/api/KPs-nested/`;
         return axios.get(url);//.then(response => response.data);
