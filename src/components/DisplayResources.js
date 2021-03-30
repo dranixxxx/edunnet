@@ -8,6 +8,8 @@ import {
     Progress,
     Row,
     Table,
+    ListGroup, 
+    ListGroupItem, 
 } from 'reactstrap';
 import {HorizontalBar} from "react-chartjs-2";
 import {chartjs, productsData} from 'demos/dashboardPage';
@@ -33,19 +35,38 @@ export default class ButtonGroupPage extends React.Component {
     var self = this;
     self.node.loginStudent().then(function (result) {
       const studentId = result.data.data._id;
-      console.log(studentId);
 
       self.service.getStudent(studentId).then(function (result) {
         const weak_KPs = result.data.kp.map(obj => obj.tree_id);
         const weak_KPs_str = weak_KPs.join(',');
 
         self.fs2.getRecResources(studentId, weak_KPs_str).then(function (result) {
-          self.setState({resources: result.data});
-          // console.log(resources);
+
+          const resources = result.data;
+
+          self.service.getAllKPs().then(function (result) {
+            const all_kps = result.data;
+            const kp_ids = resources.map((obj) => obj.KP_available.replace(' ','').split(','));
+            const a = all_kps.filter(function (kp) {
+              return kp.tree_id == '1.9.1.1.1';
+            })
+            const ori_KPs = kp_ids.map((li) => (
+              li.map((element) => (
+                all_kps.filter(function (kp) {
+                  return kp.tree_id == element;
+                })[0]
+              ))
+            ));
+
+            for (var i = 0; i < resources.length; i++) {
+              resources[i].corr_KPs = ori_KPs[i];
+            };
+            console.log(resources);
+            self.setState({resources: resources});
+          })
         })
       })
     })
-    console.log(self.state.resources);
   };
 
   render() {
@@ -58,6 +79,7 @@ export default class ButtonGroupPage extends React.Component {
               {/* <Col lg="8" md="12" sm="12" xs="12"> */}
               <Col>
                       <Card body>
+                      <CardHeader>Gợi ý tài liệu tự học</CardHeader>
                         <Table >
                           <thead>
                             <tr>
@@ -73,8 +95,22 @@ export default class ButtonGroupPage extends React.Component {
                               <tr>
                                   <td>{value.id}</td>
                                   <td>{value.title}</td>
-                                  <td>{value.KP_available}</td>
-                                  <td>{value.URL}</td>
+                                  <td>
+                                  <ListGroup style={{
+                                                        maxHeight: '100px',
+                                                        overflowY: 'auto'
+                                                        }}>
+                                    {value.corr_KPs.map(({tree_id, name}) => 
+                                        <ListGroupItem style={{
+                                                            fontSize: '15px',
+                                                            fontStyle: 'italic'
+                                                            }}>
+                                            {name}
+                                        </ListGroupItem>
+                                    )}
+                                  </ListGroup>
+                                  </td>
+                                  <td><a href={value.URL}>{value.URL}</a></td>
                               </tr>
                             )
                           })}
