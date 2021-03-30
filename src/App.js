@@ -27,6 +27,8 @@ const WidgetPage = React.lazy(() => import('pages/WidgetPage'));
 const TheThaoPage = React.lazy(() => import('pages/TheThaoPage'));
 const Calendar = React.lazy(() => import('pages/Calendar'));
 const StudentEnterTest = React.lazy(() => import('components/StudentEnterTest'));
+const MathFormPage = React.lazy(() => import('pages/MathFormPage'));
+
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -68,15 +70,12 @@ class App extends React.Component {
                 <Route exact path="/tables" component={TablePage} />
                 <Route exact path="/badges" component={BadgePage} />
                 <Route exact path="/infor_user_course" component={Calendar} />
-                <Route
-                  exact
-                  path="/button-groups"
-                  component={ButtonGroupPage}
-                />
+                <Route exact path="/button-groups" component={ButtonGroupPage} />
                 <Route exact path="/dropdowns" component={DropdownPage} />
                 <Route exact path="/progress" component={ProgressPage} />
                 <Route exact path="/modals" component={ModalPage} />
                 <Route exact path="/forms" component={FormPage} />
+                <Route exact path="/mathform" component={MathFormPage} />
                 <Route exact path="/input-groups" component={InputGroupPage} />
                 <Route exact path="/charts" component={ChartPage} />
                 <Route exact path="/thethao" component={TheThaoPage} />
