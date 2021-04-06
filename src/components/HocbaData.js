@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { randomNum } from 'utils/demos';
 import { getColor } from 'utils/colors';
 import { Radar } from 'react-chartjs-2';
 import dl from './Data.json';
+import Table from './Table';
 
-const MONTHS = ['Toan', 'Ly', 'Hoa', 'Anh', 'Dia', 'Su', 'Van'];
+const MONTHS = ['Toan'];
 
 const options1111 = {
   scale: {
@@ -28,9 +30,12 @@ class HocbaData extends Component {
   }
 
   table = value => {
-    debugger;
-    if (value + 1 !== this.state.index) this.setState({ index: value + 1 });
-    else this.setState({ index: 0 });
+    if (value + 1 !== this.state.index) {
+      this.setState({ index: 0 });
+      setTimeout(() => {
+        this.setState({ index: value + 1 });
+      }, 100);
+    } else this.setState({ index: 0 });
   };
 
   elmColors = () => {
@@ -38,8 +43,10 @@ class HocbaData extends Component {
       return (
         <button
           value={month}
-          className="btn btn-default"
+          className="btn btn-default scroll-button"
           onClick={event => {
+            const button = document.getElementsByClassName('scroll-button');
+            button[0].scrollTo({ top: 0, behavior: 'smooth' });
             this.table(index);
           }}
         >
@@ -96,15 +103,12 @@ class HocbaData extends Component {
     data.labels = labelst;
     data.datasets[0].data = datast;
 
-    console.log(datax, 'data');
     return (
       <div>
         <Radar data={data} options={options1111} />
 
         {this.elmColors()}
-        {this.state.index && (
-          <Radar data={datax[this.state.index - 1]} options={options1111} />
-        )}
+        {this.state.index ? <Table /> : ''}
       </div>
     );
   }
