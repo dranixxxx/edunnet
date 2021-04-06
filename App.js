@@ -77,7 +77,7 @@ class App extends React.Component {
                 <Route exact path="/progress" component={ProgressPage} />
                 <Route exact path="/modals" component={ModalPage} />
                 <Route exact path="/forms" component={FormPage} />
-                <Route exact path="/input-groups" component={InputGroupPage} />
+                <Route exact path="/hoconline" component={HocOnlinePage} />
                 <Route exact path="/charts" component={ChartPage} />
                 <Route exact path="/thethao" component={TheThaoPage} />
               </React.Suspense>

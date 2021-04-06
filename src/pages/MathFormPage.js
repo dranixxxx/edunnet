@@ -120,6 +120,7 @@ class MathFormPage extends Component {
     }
 
     render() {
+        console.log(this.state.solution)
         return (
             <Page title="Giải toán" breadcrumbs={[{ name: 'Solver', active: true }]}>
             <Row>

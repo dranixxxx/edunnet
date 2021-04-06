@@ -8,16 +8,16 @@ import {
     Progress,
     Row,
 } from 'reactstrap';
-import {HorizontalBar} from "react-chartjs-2";
-import {chartjs, productsData} from 'demos/dashboardPage';
+import { HorizontalBar } from 'react-chartjs-2';
+import { chartjs, productsData } from 'demos/dashboardPage';
 import ProductMedia from 'components/ProductMedia';
 
 
 const ButtonGroupPage = () => {
   return (
     <Page
-      title="Lộ trình học tập"
-      breadcrumbs={[{ name: 'Lộ trình học tập', active: true }]}
+      title = 'Tài liệu học tập'
+      breadcrumbs = {[{ name: 'Tài liệu học tập', active: true }]}
     >
       <Row>
             <Col lg="8" md="12" sm="12" xs="12">

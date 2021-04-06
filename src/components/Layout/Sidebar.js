@@ -29,7 +29,6 @@ import {
 } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 import {
-  // UncontrolledTooltip,
   Collapse,
   Nav,
   Navbar,
@@ -49,18 +48,10 @@ const navComponents = [
   { to: '/', name: 'Học bạ số', exact: true, Icon: MdDashboard },
 
   //{ to: '/forms', name: 'Học thêm', exact: false, Icon: MdChromeReaderMode },
-  { to: '/input-groups', name: 'Học online với giáo viên', exact: false, Icon: MdViewList },
-  {
-    to: '/dropdowns',
-    name: 'Làm bài tập về nhà',
-    exact: false,
-    Icon: MdArrowDropDownCircle,
+  { to: '/hoconline', name: 'Học online với giáo viên', exact: false, Icon: MdViewList },
+  { to: '/hocthem', name: 'Làm bài tập về nhà', exact: false, Icon: MdArrowDropDownCircle,
   },
-  {
-    to: '/button-groups',
-    name: 'Tự học',
-    exact: false,
-    Icon: MdGroupWork,
+  { to: '/tailieu', name: 'Tự học', exact: false, Icon: MdGroupWork,
   },
   /**/
 ];
@@ -84,8 +75,8 @@ const navGiaitri = [
   { to: '/widgets', name: 'Ăn uống', exact: false, Icon: MdWidgets },
   { to: '/buttons', name: 'Học bạ', exact: false, Icon: MdRadioButtonChecked },
   {
-    to: '/button-groups',
-    name: 'Lộ trình học tập',
+    to: '/hocthem',
+    name: 'Học thêm',
     exact: false,
     Icon: MdGroupWork,
   },

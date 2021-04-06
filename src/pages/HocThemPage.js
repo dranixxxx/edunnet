@@ -1,23 +1,19 @@
+import Page from 'components/Page';
 import React from 'react';
-
 import {
-  Row,
-  Col,
   Card,
   CardHeader,
+  Col,
+  Row,
 } from 'reactstrap';
-
-import Page from 'components/Page';
 import Tab from 'components/Tab';
 
-const InputGroupPage = () => {
+const HocThemPage = () => {
   return (
-    <Page
-      title="Input Groups"
-      breadcrumbs={[{ name: 'Input Groups', active: true }]}
-    >
-      <Row>
-        <Col>
+    <Page title="Học Thêm"
+          breadcrumbs={[{ name: 'hocthem', active: true }]}>
+            <Row>
+        <Col  md="8" sm="12" xs="12">
                   <Card>
                       <CardHeader>Học thêm</CardHeader>
                   <Tab/>
@@ -28,4 +24,4 @@ const InputGroupPage = () => {
   );
 };
 
-export default InputGroupPage;
+export default HocThemPage;

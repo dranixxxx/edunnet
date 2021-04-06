@@ -1,7 +1,6 @@
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, CardBody, Button, CardTitle, Label, CardText, ListGroup, ListGroupItem, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
-import { NumberWidget } from 'components/Widget';
-import React, { cloneElement } from "react";
+import React from "react";
 import LMSService from '../api/LMSService';
 import LMSNode from '../api/LMSNode';
 
@@ -83,7 +82,7 @@ export default class Tab extends React.Component {
         }
         self.service.updateStudent(self.studentId, student).then(function (result) {
             console.log(result);
-            alert("Đăng ký thành công!");
+            alert('Đăng ký thành công!');
         });
     }
 
@@ -116,20 +115,7 @@ export default class Tab extends React.Component {
                 <TabContent activeTab={this.state.activeTab}>
                     <TabPane tabId="1">
                         <Row>
-                            {/* {this.state.usercoursedata.map(({_id, name, corr_KPs, duration}) => (
-                                <Col lg={6} md={6} sm={6} xs={12}>
-                                    <NumberWidget
-                                        id={_id}
-                                        title={name}
-                                        number={progress}
-                                        color="secondary"
-                                        progressvalue= {progress}
-                                        progresslabel= 'progress'
 
-                                    />
-
-                                </Col>
-                            ))} */}
 
                         </Row>
                     </TabPane>

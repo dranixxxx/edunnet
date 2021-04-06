@@ -18,9 +18,9 @@ const Avatar = ({
   const classes = classNames({ 'rounded-circle': circle, rounded }, className);
   return (
     <Tag
-      src={src}
+      src={ src }
       style={{ width: size, height: size, ...style }}
-      className={classes}
+      className={ classes }
       {...restProps}
     />
   );

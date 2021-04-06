@@ -10,7 +10,7 @@ import backgroundImage from 'assets/img/bg/background_1920-2.jpg';
 const TodosCard = ({ image, title, subtitle, todos, ...restProps }) => {
   return (
     <Card {...restProps}>
-      <div className="position-relative">
+      <div className='position-relative'>
         <CardImg src={image} />
         <CardImgOverlay className="bg-dark" style={{ opacity: 0.2 }}>
           <CardTitle className="text-white">{title}</CardTitle>
@@ -31,8 +31,8 @@ TodosCard.propTypes = {
 
 TodosCard.defaultProps = {
   image: backgroundImage,
-  title: 'Tasks',
-  subtitle: 'Due soon...',
+  title: "Tasks",
+  subtitle: "Due soon...",
 };
 
 export default TodosCard;

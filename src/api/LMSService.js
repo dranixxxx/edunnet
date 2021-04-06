@@ -1,54 +1,48 @@
 import axios from 'axios';
 const API_URL = "http://45.64.126.93:8000"//process.env.API_LMS_SERVICE;
 
-class LMSService {
+export default class LMSService {
 
-    async getAllKPs() {
+    getAllKPs() {
         const url = `${API_URL}/api/KPs/`;
         return axios.get(url);
     }
 
-    async getKP() {
+    getKP() {
         const url = `${API_URL}/api/KPs-nested/`;
         return axios.get(url);//.then(response => response.data);
     }
 
-    async getKPSubset(parent_KP) {
+    getKPSubset(parent_KP) {
         const url = `${API_URL}/api/KPs/${parent_KP}/subset`;
         return axios.get(url, {
         });//.then(response => response.data);
     }
 
-    async getStudents() {
+    getStudents() {
         const url = `${API_URL}/api/students/`;
         return axios.get(url);        
     }
 
-    async getStudent(_id) {
+    getStudent(_id) {
         const url = `${API_URL}/api/students/${_id}`;
         return axios.get(url);        
     }
 
-    async createStudent(student) {
+    createStudent(student) {
         // Required fields: student_id, kp
         const _id = student._id;
         const url = `${API_URL}/api/students/`;
         return axios.post(url, student);        
     }
 
-    async updateStudent(_id, student) {
+    updateStudent(_id, student) {
         const url = `${API_URL}/api/students/${_id}`;
         return axios.patch(url, student);
     }
 
-    async getCourses() {
+    getCourses() {
         const url = `${API_URL}/api/courses/`;     
         return axios.get(url);  
     }
 };
-
-export default LMSService;
-// const obj = new LMSService();
-// obj.getKPSubset('1').then(function (result) {
-//     console.log(result.data);
-// });

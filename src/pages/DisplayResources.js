@@ -14,7 +14,7 @@ import {
 import {HorizontalBar} from "react-chartjs-2";
 import {chartjs, productsData} from 'demos/dashboardPage';
 import ProductMedia from 'components/ProductMedia';
-import dl from "./data1.json";
+import dl from "../components/data1.json";
 import LMSService from '../api/LMSService';
 import FS2 from '../api/FS2'
 import LMSNode from '../api/LMSNode';
@@ -72,8 +72,8 @@ export default class ButtonGroupPage extends React.Component {
   render() {
     return (
       <Page
-        title="Lộ trình học tập"
-        breadcrumbs={[{ name: 'Lộ trình học tập', active: true }]}
+        title="Tài liệu"
+        breadcrumbs={[{ name: 'Tài liệu', active: true }]}
       >
         <Row>
               {/* <Col lg="8" md="12" sm="12" xs="12"> */}

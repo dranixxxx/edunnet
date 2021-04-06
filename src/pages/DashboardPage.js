@@ -39,12 +39,6 @@ class DashboardPage extends Component {
   }
 
 
-  // const onHandleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(cartdata);
-  //   getPaymentUrl();
-  // };
-
   render() {
     return (
       <Page

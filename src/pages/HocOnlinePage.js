@@ -1,18 +1,23 @@
-import Page from 'components/Page';
 import React from 'react';
+
 import {
+  Row,
+  Col,
   Card,
   CardHeader,
-  Col,
-  Row,
 } from 'reactstrap';
+
+import Page from 'components/Page';
 import Tab from 'components/Tab';
 
-const DropdownPage = () => {
+const HocOnlinePage = () => {
   return (
-    <Page title="Thi, kiểm tra" breadcrumbs={[{ name: 'dropdowns', active: true }]}>
-            <Row>
-        <Col  md="8" sm="12" xs="12">
+    <Page
+      title="Học Online"
+      breadcrumbs={[{ name: 'Học Online', active: true }]}
+    >
+      <Row>
+        <Col>
                   <Card>
                       <CardHeader>Học thêm</CardHeader>
                   <Tab/>
@@ -23,4 +28,4 @@ const DropdownPage = () => {
   );
 };
 
-export default DropdownPage;
+export default HocOnlinePage;

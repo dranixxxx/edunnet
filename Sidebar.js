@@ -48,8 +48,8 @@ const sidebarBackground = {
 const navComponents = [
   { to: '/buttons', name: 'Học bạ', exact: false, Icon: MdRadioButtonChecked },
   {
-    to: '/button-groups',
-    name: 'Lộ trình học tập',
+    to: '/tailieu',
+    name: 'Tài liệu học tập',
     exact: false,
     Icon: MdGroupWork,
   },

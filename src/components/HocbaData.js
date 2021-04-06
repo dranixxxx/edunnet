@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { randomNum } from 'utils/demos';
 import { getColor } from 'utils/colors';
 import { Radar } from 'react-chartjs-2';
 import dl from './Data.json';
