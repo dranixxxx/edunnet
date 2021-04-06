@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09967a4d-c681-4b07-bcc1-f1ebb31596f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/FS2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/FS2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/LMSNode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/LMSNode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/LMSService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/LMSService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Card/AvatarCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card/AvatarCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Card/TodosCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card/TodosCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateCourse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DisplayResources.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DisplayResources.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HocbaData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HocbaData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tab.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ButtonGroupPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ButtonGroupPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/DashboardPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DashboardPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/DropdownPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HocThemPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/InputGroupPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HocOnlinePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MathFormPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MathFormPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +120,7 @@
       <workItem from="1616650406761" duration="2483000" />
       <workItem from="1617000949634" duration="8577000" />
       <workItem from="1617166733946" duration="673000" />
-      <workItem from="1617681212548" duration="13339000" />
+      <workItem from="1617681212548" duration="13813000" />
     </task>
     <servers />
   </component>
